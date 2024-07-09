@@ -9,7 +9,9 @@ import {
 import { useState } from "react";
 
 const API_URL =
-  process.env.NODE_ENV === "production" ? "" : "http://127.0.0.1:8000";
+  process.env.NODE_ENV === "production"
+    ? "https://heartfelt-victory-production.up.railway.app"
+    : "http://127.0.0.1:8000";
 
 export default function Home() {
   const [sentiment, setSentiment] = useState<number | undefined>();
