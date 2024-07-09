@@ -93,7 +93,7 @@ export default function Home() {
           </div>
         </div>
         <p className='text-sm text-red-600 py-4'>
-          * My lil&apos A.I model can make a mistake so be kind. :)
+          * My lil&apos; A.I model can make a mistake so be kind. :)
         </p>
         <div className='border-t py-4'>
           <p className='text-sm'>
