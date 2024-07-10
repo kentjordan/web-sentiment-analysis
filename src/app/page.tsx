@@ -11,7 +11,7 @@ import { useState } from "react";
 const API_URL =
   process.env.NODE_ENV === "production"
     ? "https://heartfelt-victory-production.up.railway.app"
-    : "https://heartfelt-victory-production.up.railway.app";
+    : "https://localhost:8000";
 
 export default function Home() {
   const [sentiment, setSentiment] = useState<number | undefined>();
