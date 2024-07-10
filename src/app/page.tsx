@@ -11,12 +11,13 @@ import { useState } from "react";
 const API_URL =
   process.env.NODE_ENV === "production"
     ? "https://heartfelt-victory-production.up.railway.app"
-    : "http://127.0.0.1:8000";
+    : "https://heartfelt-victory-production.up.railway.app";
 
 export default function Home() {
   const [sentiment, setSentiment] = useState<number | undefined>();
   const [probability, setProbability] = useState<number | undefined>();
   const [input, setInput] = useState<string | undefined>();
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const onAnalyze = async () => {
     try {
@@ -25,6 +26,7 @@ export default function Home() {
         return;
       }
 
+      setIsAnalyzing(true);
       const res = await axios.post(`${API_URL}/analyze`, {
         text: input,
       });
@@ -36,6 +38,8 @@ export default function Home() {
     } catch (error) {
       alert("I'm sorry the server has been under maintenance.");
     }
+
+    setIsAnalyzing(false);
   };
 
   const generateResult = (probability: number | undefined) => {
@@ -86,9 +90,10 @@ export default function Home() {
                 className='p-2 border rounded-md h-24 align-text-top resize-none'
               />
               <button
+                disabled={isAnalyzing}
                 onClick={onAnalyze}
-                className='mt-2 bg-stone-800 text-white p-2 rounded-md'>
-                Analyze
+                className='mt-2 bg-stone-800 text-white p-2 rounded-md disabled:bg-stone-800/50'>
+                {isAnalyzing ? "• • •" : "Analyze"}
               </button>
             </div>
             <p className='mt-8 text-xl'>{generateResult(probability)}</p>
