@@ -3,10 +3,9 @@ import axios from "axios";
 import {
   PytorchOriginal,
   PandasOriginal,
-  NumpyOriginal,
   FastapiOriginal,
-  DockerOriginal,
   DockerOriginalWordmark,
+  NextjsOriginal,
 } from "devicons-react";
 import { useState } from "react";
 
@@ -80,6 +79,7 @@ export default function Home() {
               <PytorchOriginal size={32} />
               <PandasOriginal size={32} />
               <FastapiOriginal size={32} />
+              <NextjsOriginal size={32} />
               <DockerOriginalWordmark size={32} />
             </div>
           </div>
